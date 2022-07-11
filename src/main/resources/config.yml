@@ -1,0 +1,141 @@
+# ------------------------------------------------
+# ░█████╗░░█████╗░███╗░░██╗███████╗██╗░██████╗░
+# ██╔══██╗██╔══██╗████╗░██║██╔════╝██║██╔════╝░
+# ██║░░╚═╝██║░░██║██╔██╗██║█████╗░░██║██║░░██╗░
+# ██║░░██╗██║░░██║██║╚████║██╔══╝░░██║██║░░╚██╗
+# ╚█████╔╝╚█████╔╝██║░╚███║██║░░░░░██║╚██████╔╝
+# ░╚════╝░░╚════╝░╚═╝░░╚══╝╚═╝░░░░░╚═╝░╚═════╝░
+# ------------------------------------------------
+
+# -- MongoDB configuration --
+# MongoDB credentials will be edited here.
+# If a URI is present, and is not set as it's default value 'uri', all other credentials
+# will be ignored EXCEPT the database name and collection values.
+#
+# If a URI is not present, or is set as it's default value 'uri', then all other
+# credentials listed below must be in use.
+#
+# MongoDB is not optional, the plugin requires it for domain storage.
+mongodb:
+  host: '127.0.0.1'
+  port: 3306
+  auth: 'admin'
+  username: 'user'
+  password: 'pass'
+  database: 'furydomains'
+  collection: 'domains'
+  uri: 'uri'
+
+# -- Plugin settings configuration --
+# General settings involving the way of which the plugin will run can be edited here
+settings:
+  # When a player creates or loads their domain, they will join a loading queue
+  # if this setting is enabled.
+  queue:
+    # Whether a loading queue is used for domain creation/loading or not.
+    # If you edit this setting, the server must be restarted for it to take effect.
+    enabled: true
+    # Interval between domain loading in seconds. Queue is updated based on this interval.
+    # Eg. Player is in position 2, {interval} seconds later, the domain in position 1 is loaded.
+    interval: 2
+
+  # Every {interval} seconds, the plugin will check if any of the users of a loaded domain are
+  # online. If no members are online, the domain will be automatically unloaded by the server.
+  # I would not recommend disabling this, as the only other time that domains are unloaded are
+  # upon server stop.
+  auto-unload:
+    # Whether the auto unloading protocol is in motion or not.
+    # If you edit this setting, the server must be restarted for it to take effect.
+    enabled: true
+    # Interval between checking for online players. Domains are auto unloaded based on this interval.
+    interval: 20
+
+# -- Domain defaults configuration --
+# Default domain settings can be edited below. These settings are just copied to a player's domain
+# file after a new domain is created OR a domain is reset.
+defaults:
+  # Domains can have multiple players added to them. This group of players is called a "team".
+  default-team-size: 8
+  # Default size to set the world border too. Eg. 250x250 would be size 250.
+  default-domain-size: 250
+  # Should other team members currently inside the domain be notified if a player exits the domain
+  notify-leave: true
+  # Should other team members currently inside the domain be notified if a player enters the domain.
+  notify-join: true
+  # Should other users be allowed to visit another player's domain
+  allow-guests: false
+
+# -- Domain limits configuration --
+# Domain feature limits are able to be edited here.
+limits:
+  # The maximum team size a player is able to upgrade too
+  max-team-size: 16
+  # The maximum size a player is able to expand their worldborder too. eg. 500 = 500x500
+  max-domain-size: 500
+  # The maximum amount of warps any domain is able to have.
+  max-domain-warps: 5
+  # The maximum amount of domains a user is allowed to own/be a member of.
+  max-domains: 5
+
+# -- Domain theme properties configuration --
+# domain-spawn: The location of which the player will spawn when they enter their domain.
+#               This is the only property which can be edited by the player. Once edited,
+#               this property is overridden.
+# difficulty: The world difficulty (easy, normal, hard, peaceful)
+# environment: The world environment (NORMAL, NETHER, THE_END, CUSTOM)
+# allow-animals: Whether or not animals can spawn
+# allow-monsters: Whether or not monsters/mobs can spawn
+# default-biome: Biome which the theme is held in. Unfortunately only 1 biome can be set.
+#               Specify biomes using minecraft id form (minecraft:%BIOME%)
+# world-type: The world type (FLAT, NORMAL, AMPLIFIED, LARGE_BIOMES)
+# pvp: Whether or not pvp is enabled
+properties:
+  grass_land:
+    default-spawn:
+      x: 0
+      y: 100
+      z: 0
+    difficulty: "normal"
+    environment: "NORMAL"
+    allow-animals: true
+    allow-monsters: true
+    default-biome: "minecraft:plains"
+    world-type: "DEFAULT"
+    pvp: true
+  green_land:
+    default-spawn:
+      x: 0
+      y: 100
+      z: 0
+    description: "Default Minecraft plains biome."
+    difficulty: "normal"
+    environment: "NORMAL"
+    allow-animals: true
+    allow-monsters: true
+    default-biome: "minecraft:plains"
+    world-type: "DEFAULT"
+    pvp: true
+  jungle_land:
+    default-spawn:
+      x: 0
+      y: 100
+      z: 0
+    difficulty: "normal"
+    environment: "NORMAL"
+    allow-animals: true
+    allow-monsters: true
+    default-biome: "minecraft:jungle"
+    world-type: "DEFAULT"
+    pvp: true
+  oasis:
+    default-spawn:
+      x: 0
+      y: 100
+      z: 0
+    difficulty: "normal"
+    environment: "NORMAL"
+    allow-animals: true
+    allow-monsters: true
+    default-biome: "minecraft:desert"
+    world-type: "DEFAULT"
+    pvp: true

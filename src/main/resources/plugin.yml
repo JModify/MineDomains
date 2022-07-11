@@ -1,0 +1,8 @@
+main: net.minefury.domains.MineDomains
+name: MineDomains
+version: ${project.version}
+description: Personal player worlds plugin.
+api-version: 1.18
+depend: [SlimeWorldManager]
+softdepend: [PlaceholderAPI]
+author: Modify

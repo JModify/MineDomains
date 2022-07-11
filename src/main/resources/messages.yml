@@ -1,0 +1,71 @@
+# ----------------------------------------------------------------------
+# ███╗░░░███╗███████╗░██████╗░██████╗░█████╗░░██████╗░███████╗░██████╗
+# ████╗░████║██╔════╝██╔════╝██╔════╝██╔══██╗██╔════╝░██╔════╝██╔════╝
+# ██╔████╔██║█████╗░░╚█████╗░╚█████╗░███████║██║░░██╗░█████╗░░╚█████╗░
+# ██║╚██╔╝██║██╔══╝░░░╚═══██╗░╚═══██╗██╔══██║██║░░╚██╗██╔══╝░░░╚═══██╗
+# ██║░╚═╝░██║███████╗██████╔╝██████╔╝██║░░██║╚██████╔╝███████╗██████╔╝
+# ╚═╝░░░░░╚═╝╚══════╝╚═════╝░╚═════╝░╚═╝░░╚═╝░╚═════╝░╚══════╝╚═════╝░
+# ----------------------------------------------------------------------
+
+# -- Message-prefix configuration --
+# Prefixes serve as text which comes before plugin-player message content.
+# The "custom" prefix can be used if you wish to use a repeating custom prefix
+# in the message configuration below.
+# All bukkit color codes as well as HEX color codes are supported.
+prefixes:
+  general: "&d&lDomains &7➤ "
+  error: "&4(!) &lERROR "
+  notification: "&c&l(!) &7 "
+  admin: "&4&lDomainAdmin &7➤ "
+  queue: "&aQueue &l➤ "
+  custom: "CustomPrefixHere :"
+
+# -- Message configuration --
+# This section is designed to allow full customization of plugin-player messages.
+# However, you must choose between the following message-type keywords:
+#
+# general | error | notification | admin | custom | raw
+# Each of these correspond to the prefixes listed above.
+
+# For example:
+# no_permission:
+#   type: "raw"
+#   message: "Hello"
+# ^^ Would print the message "Hello" in white with no prefix.
+#
+# Note that "raw" indicates that the message will be sent excluding any prefix.
+# All bukkit color codes as well as HEX color codes are supported.
+messages:
+  no_permission:
+    type: "error"
+    message: "&7You do not have permission for this command."
+  invalid_usage:
+    type: "error"
+    message: "&7Invalid usage. Syntax: {USAGE}"
+  invalid_sender:
+    type: "error"
+    message: "&7Invalid sender."
+  player_not_found:
+    type: "error"
+    message: "&7Player not found."
+  invalid_theme:
+    type: "error"
+    message: "&7Theme not found."
+  reload_success:
+    type: "admin"
+    message: "Successfully reloaded configurations."
+  domain_loaded:
+    type: "general"
+    message: "&7Domain successfully loaded in {TIME}ms."
+  domain_queue_update:
+    type: "queue"
+    message: "&aYour domain is now position {POSITION} in the loading queue."
+  domain_queue_joined:
+    type: "queue"
+    message: "&aYour domain has been queued for loading and is currently at position {POSITION}."
+  domain_create_cancelled:
+    type: "general"
+    message: "&7Domain creation process cancelled."
+  max_domains:
+    type: "error"
+    message: "&7Domain limit reached."

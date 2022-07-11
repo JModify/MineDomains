@@ -1,0 +1,243 @@
+# -----------------------------------------------------------------------
+# ░██████╗░██╗░░░██╗██╗   ░█████╗░░█████╗░███╗░░██╗███████╗██╗░██████╗░
+# ██╔════╝░██║░░░██║██║   ██╔══██╗██╔══██╗████╗░██║██╔════╝██║██╔════╝░
+# ██║░░██╗░██║░░░██║██║   ██║░░╚═╝██║░░██║██╔██╗██║█████╗░░██║██║░░██╗░
+# ██║░░╚██╗██║░░░██║██║   ██║░░██╗██║░░██║██║╚████║██╔══╝░░██║██║░░╚██╗
+# ╚██████╔╝╚██████╔╝██║   ╚█████╔╝╚█████╔╝██║░╚███║██║░░░░░██║╚██████╔╝
+# ░╚═════╝░░╚═════╝░╚═╝   ░╚════╝░░╚════╝░╚═╝░░╚══╝╚═╝░░░░░╚═╝░╚═════╝░
+# ------------------------------------------------------------------------
+# -- General Information --
+# This configuration file is used to edit all menus/guis which the plugin
+# displays to the user. All standard menus are titled as their name,
+# while anvil menu's (menu's the player can input text into anvils)
+# are titled with the prefix 'anvil'.
+#
+# Filler items for all standard menus are able to be configured however,
+# their name and lore etc. cannot be changed for obvious reasons.
+#
+# Slots for items/icons in the standard menus can also be changed, however
+# do not make the slot of an icon outside the range of the total slots in the
+# menu otherwise bad things might happen.
+#
+# -- Placeholder Information --
+# Placeholder API is supported for this plugin. It is a soft-depend meaning
+# you can choose to have it installed. If you try to use placeholders in
+# any of the strings below which are a part of placeholder API, and you
+# do not have the api running on your server, the placeholders will not
+# be replaced.
+# Additionally, some of the menu's below have in-built placeholders which
+# are there by default. These must be used somewhere in the section where
+# they are found as they are required for the given menu to work properly.
+#
+#
+# -- Standard GUI Information --
+# {MENU}.name : name of gui displayed at the top
+# {MENU}.slots : total amount of slots for the given menu.
+# {MENU}.filler : filler item used to fill empty inventory slots.
+# {MENU}.{ICON}.name : display name for icon.
+# {MENU}.{ICON}.lore : lore displayed below name for icon.
+# {MENU}.{ICON}.slot : slot which icon should be located inside menu.
+# {MENU}.{ICON}.material : material type for this icon
+# {MENU}.{ICON}.enchant-glow : whether the item should have an enchant glow or not.
+
+# -- Anvil GUI Information --
+# {MENU}.name : name of gui displayed at the top
+# {MENU}.item : the left slot input of a given anvil menu.
+# {MENU}.item.name.: display name for icon.
+# {MENU}.item.lore: lore displayed below name for icon
+#
+# NOTE: Unfortunately due to limitations with anvil menu's. The output
+# item (item you click to confirm), cannot be edited and will just
+# take on the form of the "item" icon but with an updated name.
+
+# -- Menu configurations --
+# This menu opens when a player first types /domain (or other aliases)
+main-menu:
+  name: "Domains Menu"
+  slots: 27
+  filler:
+    material: "BLACK_STAINED_GLASS_PANE"
+  # Create domain icon which takes you to the "domain-create" menu.
+  domain-create:
+    name: "&b&lCreate Domain"
+    lore:
+      - "&7Start a new domain."
+    material: "CHEST"
+    slot: 13
+    enchant-glow: false
+  # Travel to domain icon which takes you to the "domain-travel" menu.
+  domain-manage:
+    name: "&b&lDomain Management"
+    lore:
+      - "&7Manage your domains."
+    material: "ENDER_EYE"
+    slot: 11
+    enchant-glow: false
+  # Domain invitations icon which takes you to the "domain-invites" menu.
+  domain-invitations:
+    name: "&b&lDomain Invitations"
+    lore:
+      - "&7View pending domain invitations."
+    material: "PAPER"
+    slot: 15
+    enchant-glow: false
+  domain-travel:
+    name: "&b&lDomain Travel"
+    lore:
+      - "&7Travel to an existing domain"
+    material: FILLED_MAP
+    slot: 12
+    enchant-glow: false
+# This is the menu which opens when a player wants to create a new domain
+domain-create:
+  name: "Domain Creation"
+  slots: 27
+  filler:
+    material: "BLACK_STAINED_GLASS_PANE"
+  # Name entry icon before a name is chosen.
+  name-entry-pre-select:
+    name: "&c&lDomain name"
+    lore:
+      - "&7Click here to give your domain a name."
+    material: "WRITABLE_BOOK"
+    slot: 11
+    enchant-glow: false
+  # Name entry icon after a name is chosen
+  name-entry-post-select:
+    name: "&a&lDomain name"
+    lore:
+      - "&6Selected: {NAME}"
+      - "&7Click here to edit name."
+    material: "WRITABLE_BOOK"
+    slot: 11
+    enchant-glow: true
+  # Theme selection icon before a theme has been selected
+  theme-pre-select:
+    name: "&c&lTheme select"
+    lore:
+      - "&7Click here to select a theme for your domain"
+    material: "BEDROCK"
+    slot: 13
+    enchant-glow: false
+  # Theme selection icon after a theme has been selected
+  theme-post-select:
+    name: "&a&lTheme select"
+    lore:
+      - "&6Selected: {THEME}"
+      - "&7Click here to edit theme."
+    material: "{THEME_DISPLAY_BLOCK}"
+    slot: 13
+    enchant-glow: true
+  # Confirm domain creation icon before theme and name have been chosen.
+  confirm-create-pre-selections:
+    name: "&cCreate domain"
+    lore:
+      - "&7Name and theme must be first selected"
+    material: "REDSTONE_BLOCK"
+    slot: 15
+    enchant-glow: false
+  # Confirm domain creation icon after theme and name have been chosen.
+  confirm-create-post-selections:
+    name: "&aCreate domain"
+    lore:
+      - "&7Start your new domain using the selected options"
+    material: "EMERALD_BLOCK"
+    slot: 15
+    enchant-glow: false
+  back-button:
+    name: "&dGo Back"
+    lore:
+      - "&7Return to the previous page"
+    material: ARROW
+    slot: 18
+    enchant-glow: false
+# Text menu used to input name of domain during domain creation.
+anvil-domain-enter-name:
+  name: "Name Entry"
+  item:
+    name: "&6&lName here..."
+    lore:
+      - "&7Enter a name for your domain"
+    material: "PAPER"
+    slot: -1
+    enchant-glow: true
+# Menu used to select them for domain.
+domain-select-theme:
+  name: "Theme Selection"
+  slots: 27
+  filler:
+    material: "BLACK_STAINED_GLASS_PANE"
+  jungle-land:
+    name: "&2&lJungle Land"
+    lore:
+      - "&7Tropical rainforest with dense canopies and vegetation."
+    material: "JUNGLE_LEAVES"
+    slot: 10
+    enchant-glow: false
+  oasis:
+    name: "&6&lOasis"
+    lore:
+      - "&7Hybrid landscape between a desert and plains biome."
+    material: "SAND"
+    slot: 12
+    enchant-glow: false
+  grass-land:
+    name: "&3&lGrass Land"
+    lore:
+      - "&7Flat, grassy landscape consisting of very little vegetation."
+    material: "GRASS"
+    slot: 14
+    enchant-glow: false
+  green-land:
+    name: "&a&lGreen Land"
+    lore:
+      - "&7Default Minecraft plains biome."
+    material: "GRASS_BLOCK"
+    slot: 16
+    enchant-glow: false
+# This menu is less customizable as it contains a list of all domains
+# a player owns/is a part of.
+domain-travel:
+  name: "Domain Travel"
+  slots: 27
+  filler:
+    material: "BLACK_STAINED_GLASS_PANE"
+  empty-domain-slot:
+    name: "&cEmpty Slot"
+    lore:
+      - "&7Start a new domain or join a domain to travel to it."
+    material: "BEDROCK"
+    enchant-glow: false
+  # Icon for a domain which a player owns.
+  domain-is-owner-icon:
+    name: "&6&l{DOMAIN_NAME}"
+    lore:
+      - "&7Owner: {DOMAIN_OWNER}"
+      - "&7Members: {DOMAIN_MEMBERS}"
+      - "&7Theme: {DOMAIN_THEME}"
+      - "&7World Size: {DOMAIN_SIZE}"
+      - " "
+      - "&7Click to travel to this domain."
+      - "&8{DOMAIN_ID}"
+    material: "NAME_TAG"
+    enchant-glow: true
+  # Icon for a domain a player is a member of.
+  domain-is-member-icon:
+    name: "&6&l{DOMAIN_NAME}"
+    lore:
+      - "&7Owner: {DOMAIN_OWNER}"
+      - "&7Members: {DOMAIN_MEMBERS}"
+      - "&7Theme: {DOMAIN_THEME}"
+      - "&7World Size: {DOMAIN_SIZE}"
+      - " "
+      - "&7Click to travel to this domain."
+      - "&8{DOMAIN_ID}"
+    material: "NAME_TAG"
+    enchant-glow: false
+  back-button:
+    name: "&dGo Back"
+    lore:
+      - "&7Return to the previous page"
+    material: ARROW
+    slot: 18
+    enchant-glow: false
